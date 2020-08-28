@@ -22,6 +22,10 @@ public class Processor implements ItemProcessor<User, User> {
 
     @Override
     public User process(User user) throws Exception {
+        return processUserDeptCode(user);
+    }
+
+    private User processUserDeptCode(User user) {
         String deptCode = user.getDept();
         String dept = DEPT_NAMES.get(deptCode);
         user.setDept(dept);
